@@ -1,0 +1,3 @@
+[submodule "hee-blog-frame"]
+	path = hee-blog-frame
+	url = git@github.com:hee-develop/hee-blog-frame.git
