@@ -16,3 +16,10 @@ git subtree push --prefix out origin gh-pages
 ```shell
 git submodule update --remote
 ```
+
+## `gh-pages` subtree에 force-push
+commit까지는 일반 push와 같음.
+```shell
+git push origin `git subtree split --prefix out main`:gh-pages --force
+```
+`git subtree split --prefix out main`을 통해 subtree의 최신 commit의 hash를 구한 뒤, 해당 commit을 gh-pages에 강제로 push한다.
