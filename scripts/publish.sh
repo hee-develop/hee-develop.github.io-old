@@ -9,20 +9,21 @@ cd "${ROOT}/hee-blog-frame/"
 echo '=== Build static pages ==='
 npm run build
 
-echo '=== Export pages ==='
-npm run export
+if [ $? -ne 0 ]; then
+  echo 'FAILED: Gatsby build failed.'
+  exit
+fi
 
 # check old static pages
-if [[ -f "${ROOT}/out/.nojekyll" ]]
-then
+if [[ -f "${ROOT}/published/.nojekyll" ]]; then
   echo '=== Remove old pages ==='
-  rm -rf "${ROOT}/out/"
+  rm -rf "${ROOT}/published/"
 fi
 
 echo '=== Add .nojekyll ==='
-touch './out/.nojekyll'
+touch './public/.nojekyll'
 
 echo '=== Move new pages ==='
-mv "./out/" "${ROOT}/out/"
+mv "./public/" "${ROOT}/published/"
 
 echo 'Publish is ready.'
