@@ -1,25 +1,43 @@
-# hee-develop
-React를 공부하면서 만드는 개발 블로그
+# hee-develop.github.io
 
-## 글 작성(출판)
+Private blog made by Gatsby
+
+## Construction
+```
+*            gh-pages (subtree)
+|
+ \
+  *          main
+  | \
+  |  |
+  |  *       hee-blog-frame (submodule)
+```
+
+## Used
+`Gatsby` `React` `GraphQL` `styled-components`
+
+## How to publish
 ```shell
-# SSG로 정적 페이지 생성
+# pwd
+# .../hee-develop
+
+# create static pages
 ./scripts/publish.sh
 
-# Github Page용 브랜치 'gh-pages'에 푸시
+# push static pages to `gh-pages`
 git add published/
-git commit
+git commit -m '...'
 git subtree push --prefix published origin gh-pages
 ```
 
-## 블로그(프레임)의 변경사항 반영
+### Force publish(how to force-push to `gh-pages` subtree)
+```shell
+# ...
+git push origin `git subtree split --prefix published main`:gh-pages --force
+```
+Use `git subtree split --prefix published main` to get latest commit's hash; `[source]:[destination]` to push commit onto dest branch
+
+## Get latest blog frame
 ```shell
 git submodule update --remote
 ```
-
-## `gh-pages` subtree에 force-push
-commit까지는 일반 push와 같음.
-```shell
-git push origin `git subtree split --prefix published main`:gh-pages --force
-```
-`git subtree split --prefix published main`을 통해 subtree의 최신 commit의 hash를 구한 뒤, 해당 commit을 gh-pages에 강제로 push한다.
