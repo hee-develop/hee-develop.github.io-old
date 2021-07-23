@@ -1,0 +1,2 @@
+(self.webpackChunkhee_dev_blog=self.webpackChunkhee_dev_blog||[]).push([[49],{6033:function(e,t,a){"use strict";a.r(t),a.d(t,{default:function(){return r}});var n=a(7294),c=a(3680),l=a.p+"static/profile-c8e5e0b0d2ae5fb7baa715d3aab1f003.gif";function r(){return n.createElement(c.Z,{pageTitle:"About"},n.createElement("img",{src:l}),n.createElement("span",null,"안녕하세요"))}}}]);
+//# sourceMappingURL=component---src-pages-about-tsx-9482492e75c1a3ec6b79.js.map
